@@ -1,8 +1,17 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Claude Code
-sudo npm install -g @anthropic-ai/claude-code
+# Agent CLIs (claude-code, pi, codex, opencode)
+sudo npm install -g \
+  @anthropic-ai/claude-code \
+  @mariozechner/pi-coding-agent \
+  @openai/codex \
+  opencode-ai
+
+# Podman (docker is provided by the docker-in-docker feature)
+sudo apt-get update
+sudo apt-get install -y podman
+sudo rm -rf /var/lib/apt/lists/*
 
 # GitLab CLI (glab)
 ARCH="$(dpkg --print-architecture)"
